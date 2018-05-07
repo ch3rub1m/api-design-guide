@@ -19,7 +19,7 @@
   * 对API方法的单次调用。通常用来作为计费、日志、监控以及速率限制的单位。
 
 ### API服务
-  * 一个或若干个API接口的部署实现，可在一个或若干个网络端点上获取到该服务。每个API服务通过一个兼容RFC 1035 DNS标准（https://www.ietf.org/rfc/rfc1035.txt）的服务名称来标识，例如calendar.googleapis.com。
+  * 一个或若干个API接口的部署实现，可在一个或若干个网络端点上获取到该服务。每个API服务通过一个兼容RFC 1035 [DNS标准](https://www.ietf.org/rfc/rfc1035.txt)的服务名称来标识，例如calendar.googleapis.com。
 
 ### API端点
   * 指API服务给实际API请求提供服务的网络地址。例如pubsub.googleapis.com 、 content-pubsub.googleapis.com。
@@ -28,7 +28,7 @@
   * 一个API服务加上其相关的组件，例如服务条款，文档，客户端库和服务支持等，一起作为一个产品呈现给用户。例如，Google Calender API。备注：人们说的API产品通常只是指API。
 
 ### API服务定义
-  * 指所有用于定义API服务的API接口定义（.proto文件）和API服务配置（.yaml文件）的集合。Google API服务定义的模式是google.api.Service（https://github.com/googleapis/googleapis/blob/master/google/api/service.proto）。
+  * 指所有用于定义API服务的API接口定义（.proto文件）和API服务配置（.yaml文件）的集合。Google API服务定义的模式是[google.api.Service](https://github.com/googleapis/googleapis/blob/master/google/api/service.proto)。
 
 ### API消费者
   * 使用API服务的实体。对于Google API来说，API消费者通常是带有客户端应用或服务资源的Google项目。
