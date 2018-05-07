@@ -19,7 +19,7 @@
   * 对API方法的单次调用。通常用来作为计费、日志、监控以及速率限制的单位。
 
 ### API服务
-  * 一个或若干个API接口的部署实现，可在一个或若干个网络端点上获取到该服务。每个API服务通过一个兼容RFC 1035 [DNS标准](https://www.ietf.org/rfc/rfc1035.txt)的服务名称来标识，例如calendar.googleapis.com。
+  * 一个或若干个API接口的部署实现，可在一个或若干个网络端点上获取到该服务。每个API服务通过一个兼容[RFC 1035 DNS标准](https://www.ietf.org/rfc/rfc1035.txt)的服务名称来标识，例如calendar.googleapis.com。
 
 ### API端点
   * 指API服务给实际API请求提供服务的网络地址。例如pubsub.googleapis.com 、 content-pubsub.googleapis.com。
