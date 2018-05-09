@@ -43,7 +43,7 @@ API新的主版本一定不能依赖于`这个API`先前的主版本。在了解
 ## 向后兼容性
 有时候很难去判断一个改变是否是向后兼容的。
 
-下面列出了一些供你快速检索的类型，如果你有疑惑，可以点击查看[设计兼容页面]( https://cloud.google.com/apis/design/compatibility)以获取更多的内容。
+下面列出了一些供你快速检索的类型，如果你有疑惑，可以点击查看[兼容页面](https://git.garena.com/shopee/space/api-design-guide/blob/3edf15b1cb386c08d64512a2e1c733f41f34eee0/Compatibility.md)以获取更多的内容。
 
 ### 保持向后兼容的修改
 
