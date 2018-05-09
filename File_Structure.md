@@ -10,7 +10,6 @@
   * 资源`message`定义。在子资源定义之前，其父资源必须先完成定义。
 
   若一个proto文件包含了整个API的定义，则它的命名要与API一致：
-
 |   API    |     Proto     |
 |----------|:-------------:|
 | Library  | Library.proto |
