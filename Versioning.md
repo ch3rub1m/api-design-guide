@@ -1,5 +1,5 @@
 # 版本化
-一个API服务可能提供多个[API接口](https://cloud.google.com/apis/design/glossary#api_interface)，[API版本](https://cloud.google.com/apis/design/glossary#api_version)策略是应用在API 接口层面上而不是API服务层面上的。为了方便起见，下面所有的API均指API接口。
+一个API服务可能提供多个API接口，API版本策略是应用在API 接口层面上而不是API服务层面上的。为了方便起见，下面所有的API均指API接口。
 
 网络API应该使用语义化版本控制（[Semantic Versioning](http://semver.org/)）。对于某一个版本号`MAJOR.MINOR.PATCH`：
 

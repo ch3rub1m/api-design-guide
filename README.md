@@ -1,30 +1,8 @@
 ## 介绍
-这份文档主要用于指导Space相关项目的APIs设计风格，旨在减少共同工作的开发者之间的理解障碍。
+这是一份针对网络API的通用设计指南。它从2014年开始用于Google内部，也用于设计Cloud APIs和Google APIs。这份指南在此处共享来告知外部开发者，以便我们所有人都能更轻松地合作。
 
-我们强烈推荐开发者们在设计API时遵循这些原则，以防止APIs设计的滥用造成的数量失控和语义混乱。
+Google Cloud Endpoints的开发者们可能会发现这份指南在设计gRPC APIs的时候特别有用，并且我们强烈推荐这些开发者们使用这些设计准则。但是我们并不强迫你使用它。你也可以使用Cloud Endpoints和gRPC却不遵循这份指南。
 
-这份指导可同时应用于基于HTTP的REST APIs与基于socket的RPC APIs，尤其是gRPC APIs。
+这份指导可同时应用于基于HTTP的REST APIs与基于socket的RPC APIs，尤其是gRPC APIs。gRPC APIs使用Protocol Buffers来定义它们的API接口，使用API Service Configuration来定义他们的API服务，包括HTTP映射，日志和监控。HTTP映射这个特性被Google APIs和Cloud Endpoints gRPC APIs使用，用于JSON/HTTP和Protocol Buffers/RPC之间的转码。
 
-## 目录
-* Introduction 介绍
-* Resource Oriented Design 面向资源设计
-* Resource Names 资源名称
-* Standard Methods 标准方法
-* Custom Methods 自定义方法
-* Standard Fields 标准字段
-* Errors 错误
-* Naming Conventions 命名约定
-* Design Patterns 设计模式
-* Documentation 文档
-* Using proto3 使用proto3
-* Versioning 版本化
-* Compatibility 兼容性
-* Directory Structure 目录结构
-* File Structure 文件架构
-* Glossary 术语表
-
-## 参考资料
-https://cloud.google.com/apis/design/
-
-## 备注
-该文档「未完成」
+这份指南是一个活跃的文档，它的内容会随着新风格和新设计模式的采用和批准而有所增补。本着这种精神，它永远不会是完整的，并且API设计的艺术和工艺总是有足够的进步空间。
