@@ -180,7 +180,7 @@ service Library {
 enum BookView {
 	// 什么都不指定，这等同于BASIC.
   BOOK_VIEW_UNSPECIFIED = 0;
-  
+
   // 响应中只包含作者、标题、ISBN和唯一的图书ID。这是默认值。
   BASIC = 1;
 
@@ -201,7 +201,7 @@ message ListBooksRequest {
 GET https://library.googleapis.com/v1/shelves/shelf1/books?view=BASIC
 ```
 
-可以在[标准方法](https://git.garena.com/shopee/space/api-design-guide/blob/3200aadcdd248014575f1154578355f605e31981/Standard_Methods.md)一章中查看更多关于定义方法、请求和响应的内容。
+可以在[标准方法](Standard_Methods.md)一章中查看更多关于定义方法、请求和响应的内容。
 
 ## ETags
 ETag是一个不透明的标识符，允许客户端进行条件性请求。为了支持 ETag，API`应该`在资源定义中包含一个字符串字段`etag`，它的语义`必须`与ETag的常用用法相匹配。通常，`etag`包含由服务器计算出的资源指纹。更多详细信息，请参阅 [维基百科](https://en.wikipedia.org/wiki/HTTP_ETag)和[RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3)。
