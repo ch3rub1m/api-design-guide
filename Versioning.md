@@ -16,11 +16,11 @@
 
 版本演进的例子：
 
- 版本      | Proto包   | 描述                              |
+| 版本      | Proto包   | 描述                              |
 |-----------|-----------|-----------------------------------|
 | v1alpha   | v1alpha1  | v1 alpha版本.                     |
-| v1beta1   | v1beta1   | v1 beta1版本.                    |
-| v1beta2   | v1beta2   | v1 beta2版本.               |
+| v1beta1   | v1beta1   | v1 beta1版本.                     |
+| v1beta2   | v1beta2   | v1 beta2版本.                     |
 | v1test    | v1test    | 用假数据进行测试的内部测试v1版本. |
 | v1        | v1        | v1主版本，基本稳定.               |
 | v1.1beta1 | v1p1beta1 | v1微小更改后的第一个beta版本.     |
