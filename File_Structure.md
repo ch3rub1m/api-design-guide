@@ -1,7 +1,7 @@
-## 文件架构
+## 文件结构
   gRPC APIs 应在`.proto`文件里用proto3 IDL定义。
 
-  文件架构应该将高层级和更重要的定义放在其他项目之前。proto文件中每部分须按照以下顺序排列：
+  文件结构应该将高层级和更重要的定义放在其他项目之前。proto文件中每部分须按照以下顺序排列：
   * 版权和许可证，如果需要。
   * `syntax`、`package`、`option`、`import`语句,他们要以此顺序排列。
   * 让读者准备好阅读文件剩余内容的API概述文档。
@@ -10,7 +10,7 @@
   * 资源`消息`定义。在子资源定义之前，其父资源必须先完成定义。
 
   若一个proto文件包含了整个API的定义，则它的命名要与API一致：
-  
+
 |   API    |     Proto     |
 |----------|:-------------:|
 | Library  | Library.proto |
@@ -38,7 +38,7 @@ package google.abc.xyz.v1;
 // 更多关于C#或.NET的信息，可在[框架设计指南](https://msdn.microsoft.com/en-us/library/ms229043)中查看。
 //
 // 有个特殊情况：当使用了缩略词时，需要将缩略词全部大写。例如，`IOStream` 和 `OSVersion`, 而不能写成 `IoStream` 和 `OsVersion`。在API里要谨慎使用这些词，因为proto并不知道哪个词是缩写、哪个不是。比如命名空间中有`OSLogin` ，要是在同名信息里生成一个叫做`OsDetails`的类，就会导致不一致。若能确保消息或字段名中不会出现缩略词，那么使用常规的PascalCase是安全的。
-// 
+//
 // 对于预发布版本，Alpha/Beta应该以大写字母开头，举个例子应该是"V1Beta1"，而不是"V1beta1"。
 option csharp_namespace = "Google.Abc.Xyz.V1";
 
