@@ -2,35 +2,35 @@
 
 为了能够长时间在跨APIs中为开发者提供一致性的体验，API的所有命名应该遵循以下几点：
 
-* 简单
-* 直观
-* 一致
+*   简单
+*   直观
+*   一致
 
 这包括接口，资源，集合，方法以及消息的命名。
 
 因为大多数开发者都不是以英语作为母语的，这些命名规范的一个目的是确保大多数开发者可以很容易地理解一个API。规范通过鼓励在命名方法和资源时使用简单一致的小词汇量来达到这一目的。
 
-* APIs里面的名称应该是正确的美式英语。例如，license（而不是licence），color（而不是colour）。
-* 为了简洁起见，可以使用常用的短语或长词的缩写。 例如，API就比Application Programming Interface更好一点。
-* 如果有可能，使用直观而且人们熟悉的术语。举个例子，当要描述移除（并且删除）一个资源的时候，delete比erase更恰当。
-* 为相同的概念使用相同的名称或术语，包括一些跨API共享的概念。
-* 避免名字重载。 对不同的概念使用不同的名称。
-* 避免在API上下文以及更大的Google APIs生态系统中使用过于笼统的含糊不清的名称。他们会导致API的一些概念被误解。相反，我们要选那些可以准确描述API概念的名称。这在定义最重要的API元素（如资源）的时候尤为重要。我们没有明确指出哪些是不能用来定义的名称，因为每一个名称都需要在上下文中被评估后确定。举个例子，Instance，Info和service这些名称在过去就被发现很有问题，因为选中的名字应该能够清晰地描述API的概念（例如：什么东西的instance）以及能够将它与一些相关的概念区分开来（例如“alert”指的是规则，还是型号，还是通知？）。
-* 在使用那些可能与普通编程语言中的关键字冲突的名称时要小心。这些名字是可以被使用的，不过可能会在API review时接受额外的审查，所以应该谨慎并尽可能少地使用它们。
+*   APIs里面的名称应该是正确的美式英语。例如，license（而不是licence），color（而不是colour）。
+*   为了简洁起见，可以使用常用的短语或长词的缩写。 例如，API就比Application Programming Interface更好一点。
+*   如果有可能，使用直观而且人们熟悉的术语。举个例子，当要描述移除（并且删除）一个资源的时候，delete比erase更恰当。
+*   为相同的概念使用相同的名称或术语，包括一些跨API共享的概念。
+*   避免名字重载。 对不同的概念使用不同的名称。
+*   避免在API上下文以及更大的Google APIs生态系统中使用过于笼统的含糊不清的名称。他们会导致API的一些概念被误解。相反，我们要选那些可以准确描述API概念的名称。这在定义最重要的API元素（如资源）的时候尤为重要。我们没有明确指出哪些是不能用来定义的名称，因为每一个名称都需要在上下文中被评估后确定。举个例子，instance，info和service这些名称在过去就被发现很有问题，因为选中的名字应该能够清晰地描述API的概念（例如：什么东西的instance）以及能够将它与一些相关的概念区分开来（例如“alert”指的是规则，还是型号，还是通知？）。
+*   在使用那些可能与普通编程语言中的关键字冲突的名称时要小心。这些名字是可以被使用的，不过可能会在API review时接受额外的审查，所以应该谨慎并尽可能少地使用它们。
 
 ## 产品名称
 产品指API的产品营销名称，例如Google Calendar API。产品名称一定要在APIs，UIs，文档，服务条款，账单报表以及商业合同等一系列东西里面保持一致。Google APIs必须使用那些被产品和市场营销团队允许的产品名称。
 
 以下表格展示了不同API的名称如何保持一致性的例子。请在本篇文章后面获取更多关于每一个名字以及他们相关约定的详细内容。
 
-| API 名称            | 示例                            |
-|------------------------|----------------------------------|
-| 产品名称 | Google Calendar API    |
-| 服务名称  | calendar.googleapis.com            |
-| 包名称| google.calendar.v3                 |
-| 接口名称| google.calendar.v3.CalendarService |
-| 源目录 | //google/calendar/v3               |
-| API 名称         | calendar                           |
+| API 名称 | 示例                               |
+|----------|------------------------------------|
+| 产品名称 | Google Calendar API                |
+| 服务名称 | calendar.googleapis.com            |
+| 包名称   | google.calendar.v3                 |
+| 接口名称 | google.calendar.v3.CalendarService |
+| 源目录   | //google/calendar/v3               |
+| API 名称 | calendar                           |
 
 ## 服务名称
 服务名称应该是语法上有效的DNS名(参照[RFC 1035](http://www.ietf.org/rfc/rfc1035.txt)），它可以被解析成一个或者多个网络ip地址。Google公共APIs的服务名称遵循以下模式：`xxx.googleapis.com`。例如，Google Calendar的服务名称是`calendar.googleapis.com`。
@@ -38,7 +38,7 @@
 如果一个API是由几个服务组成的，这些服务应该以一种让他们容易被发现的方式进行命名。实现这的其中一个方式是让这些服务名称都共享一个前缀。例如`build.googleapis.com`和`buildresults.googleapis.com`都是Google Build API的组成部分。
 
 ## 包名称
-在API的.proto文件中定义的包名称应该与产品和服务名称保持一致。那些拥有版本号的APIs的包名称必需以版本号结尾。例如：
+在API的.proto文件中定义的包名称应该与产品和服务名称保持一致。那些拥有版本号的APIs的包名称必须以版本号结尾。例如：
 ```
 // Google Calendar API
 package google.calendar.v3;
@@ -77,9 +77,9 @@ service Library {
 ## 方法名称
 服务可能在其IDL规范中定义一个或多个对应于集合和资源上的RPC方法。 方法名称应该遵循`VerbNoun`的命名规范，其中名词`Noun`通常是资源类型。
 
-| 动词     | 名词   | 方法名称       | 请求消息              | 响应消息               |
+| 动词   | 名词 | 方法名称   | 请求消息          | 响应消息           |
 |--------|------|------------|-------------------|--------------------|
-| List    | Book | ListBook   | ListBookRequest   | ListBookResponse   |
+| List   | Book | ListBooks  | ListBooksRequest  | ListBooksResponse  |
 | Get    | Book | GetBook    | GetBookRequest    | Book               |
 | Create | Book | CreateBook | CreateBookRequest | Book               |
 | Update | Book | UpdateBook | UpdateBookRequest | Book               |
@@ -93,9 +93,9 @@ service Library {
 ## 消息名称
 RPC方法的请求和响应消息应该分别以带有`Request`和`Response`后缀的方法名称命名，除非方法的请求和响应类型是：
 
-* 一个空消息（使用`google.protobuf.Empty`）
-* 一个资源名称
-* 一个代表一个操作的资源
+*   一个空消息（使用`google.protobuf.Empty`）
+*   一个资源名称
+*   一个代表一个操作的资源
 
 这通常适用于在标准方法`Get`，`Create`，`Update`或`Delete`中使用的请求或响应。
 
@@ -118,13 +118,13 @@ enum FooBar {
 
 字段名称应该避免使用介词（例如 “for”，“during”和“at”），例如：
 
-* 使用`error_reason`而不是`error_for_reason`。
-* 使用`failure_time_cpu_usage`而不是`cpu_usage_at_time_of_failure`。
+*   使用`error_reason`而不是`error_for_reason`。
+*   使用`failure_time_cpu_usage`而不是`cpu_usage_at_time_of_failure`。
 
 字段名称应该避免使用后置形容词（名词后面的装饰词），例如：
 
-* 使用`collected_items`而不是`items_collected`。
-* 使用`imported_objects`而不是`objects_imported`。
+*   使用`collected_items`而不是`items_collected`。
+*   使用`imported_objects`而不是`objects_imported`。
 
 ### 重复字段名称
 
@@ -141,7 +141,7 @@ APIs的重复字段名称必须使用正确的复数形式。这和现存的Goog
 ```
 message FlightRecord {
 	google.protocolbuf.Timestamp takeoff_time = 1;
-  google.protocolbuf.Duration flight_duration = 2;
+	google.protocolbuf.Duration flight_duration = 2;
 }
 ```
 
@@ -227,7 +227,7 @@ message ListEventsResponse {
 ## 名字缩写
 对于诸如`config`和`spec`等在软件开发里面被大家熟悉的名字缩写，在API定义的时候，比较偏向于使用缩写而不是全称。这样会使源代码更容易被阅读和编写。在正式的文档里面，就应该使用全拼了。例如：
 
-* config (configuration)
-* id (identifier)
-* spec (specification)
-* stats (statistics)
+*   config (configuration)
+*   id (identifier)
+*   spec (specification)
+*   stats (statistics)
