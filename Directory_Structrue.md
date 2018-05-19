@@ -13,7 +13,7 @@
         *   `{service}.yaml` - 基准服务配置文件，它是`google.api.Service`的proto消息的YAML表示。
         *   `prod.yaml` - 生产环境差异化服务配置文件。
         *   `staging.yaml` - 仿真环境差异化服务配置文件。
-        *   `test.yaml` - 测试环境差异化配置文件。
+        *   `test.yaml` - 测试环境差异化服务配置文件。
         *   `local.yaml` - 本地环境差异化服务配置文件。
     *   文档文件
         *   `README.md` - 主要的说明书。它应该包含产品概述、技术描述等等。
