@@ -15,3 +15,4 @@
 *   [兼容性](Compatibility.md)
 *   [目录结构](Directory_Structrue.md)
 *   [文件结构](File_Structure.md)
+*   [术语表](GLOSSARY.md)
