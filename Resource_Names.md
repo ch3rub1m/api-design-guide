@@ -1,20 +1,24 @@
 ## 资源名称
 在面向资源的APIs里，资源是命名实体，并且资源名称是他们的唯一标识。每一个资源必须有一个独一无二的资源名称。资源名称由资源本身的ID、它的各个父级的ID以及API服务名称组成。接下来我们会关注在资源ID和一个资源名称是如何被构建的。
 
-gRPC APIs应当使用scheme-less URIs来描述资源名称。他们通常遵循REST URL的约定，并且表现的更像是一个网络上的文件路径。
+gRPC APIs应当使用scheme-less URIs来描述资源名称。他们通常遵循REST URL的约定，并且表现的更像是一个网络上的文件路径。他们可以被轻易地映射到REST URLs：查阅[标准方法](Standard_Methods.md)获取更多细节。
 
 集合是一种特殊的资源，它包含了一组相同类型的子资源。举个例子，一个文件夹是一组文件资源的集合。一个集合的资源ID被称为集合ID。
 
 资源名称被有层级地按照集合IDs和资源IDs组织，通过斜杆分隔。如果一个资源包含一个子资源，那么子资源的名称将形如父级资源的名称尾随着一个子资源ID，他们同样是由斜杆来分隔。
 
 例子1：一个存储服务有一组buckets的集合，而bucket又是一组objects的集合：
-```
-//storage.shopee.com/buckets/bucket-id/objects/object-id
-```
+
+API Service Name         | Collection ID | Resource ID | Collection ID | Resource ID
+-------------------------|---------------|-------------|---------------|------------
+//storage.googleapis.com | /buckets      | /bucket-id  | /objects      | /object-id
+
 例子2：一个邮件服务有一组用户的集合，每一个用户有一个settings子资源，并且settings子资源又有复数的子资源，比如customFrom：
-```
-//mail.shopee.com/users/name@shopee.com/settings/customFrom
-```
+
+API Service Name      | Collection ID | Resource ID       | Resource ID | Resource ID
+----------------------|---------------|-------------------|-------------|------------
+//mail.googleapis.com | /users        | /name@example.com | /settings   | /customFrom
+
 一个API开发者可以为资源和集合IDs选择任意可接受的值，并且需要在资源层级内尽可能长来保证它们是唯一的。你可以在下文中找到更多关于如何选择合适的资源和集合IDs的指导方针。
 通过分隔资源名称，比如`name.split(“/“)[n]`，只要各个分段都不包含任何的正斜杆，就可以分别获得集合IDs和资源IDs。
 
@@ -37,31 +41,43 @@ API服务名称是为了让客户端可以定位API服务的终端，它可以�
 
 一个不为空的URI分段，它标识了一个被包含在它的父资源内的资源，可以参照之前的例子。
 在资源名称中，资源ID可以是多个URI的分段。举个例子：
-```
-"files/source/py/parser.py"
-```
+
+Collection ID | Resource ID
+--------------|---------------------
+files         | /source/py/parser.py
+
 如果条件允许，API服务应该使用URL友好的资源IDs。资源IDs必须被清晰地标明它们是由客户端还是服务端来指定。举个例子，文件名通常是由客户端来指定的，而邮件的消息IDs则通常由服务端来指定。
 
 ### 集合ID
 
 一个不为空的URI分段，它标识了被包含在它的父资源内集合资源，可以参照之前的例子。
 由于集合IDs通常会出现在被生成的客户端库里，所以它们必须满足以下的需求：
- *  必须是合法的C/C++标识符
- *  必须是小写驼峰的复数形式。如果没有合适的复数形式，例如“evidence”或“weather”，那么应该使用单数形式。
- *  必须是清晰且简明的英文词汇
- *  过于概略的词汇应该避免使用，或者加以修饰。例如rowValues就比values更好。以下的词汇如果没有修饰应该被避免使用：
- *  elements
- *  entries
- *  instances
- *  items
- *  objects
- *  resources
- *  types
- *  values
+*   必须是合法的C/C++标识符
+*   必须是小写驼峰的复数形式。如果没有合适的复数形式，例如“evidence”或“weather”，那么应该使用单数形式。
+*   必须是清晰且简明的英文词汇
+*   过于概略的词汇应该避免使用，或者加以修饰。例如rowValues就比values更好。以下的词汇如果没有修饰应该被避免使用：
+    *   elements
+    *   entries
+    *   instances
+    *   items
+    *   objects
+    *   resources
+    *   types
+    *   values
 
 ### 资源名称 vs URL
 
 虽然一个完整的资源名称看起来像是一个普通的URLs，但是它们其实并不相同。一个单独的资源可以被不同的方式暴露，例如不同的API版本，不同的API协议或者不同的网络终端。完整的资源名称并未指明这些信息，所以当它被使用时必须被映射到指定的API版本和API协议。
+
+要通过REST API使用完整的资源名称，必须将其转换为REST URL，方法是在服务名称前添加HTTPS方案，在资源路径前添加API主版本，以及URL转义资源路径。例如：
+
+```
+// 这是一个日历事件的资源名称。
+"//calendar.googleapis.com/users/john smith/events/123"
+
+// 这是相应的HTTP URL。
+"https://calendar.googleapis.com/v3/users/john%20smith/events/123"
+```
 
 ### 资源名称即字符串
 
@@ -109,7 +125,7 @@ message CreateBookRequest {
 }
 ```
 
-> 为了资源名称的一致性，词首的正斜杆一定不能被任何URL模版变量捕获。例如，URL模版必须使用`/v1/{name=shelves/*/books/*}`而不是`"/v1{name=/shelves/*/books/*}"`
+> 提示：为了资源名称的一致性，词首的正斜杆一定不能被任何URL模版变量捕获。例如，URL模版必须使用`/v1/{name=shelves/*/books/*}`而不是`"/v1{name=/shelves/*/books/*}"`
 
 ### 问题
 
@@ -117,10 +133,10 @@ Q：为什么不使用资源IDs来标识一个资源？
 
 A：在一个大型系统里有种类繁多的资源。使用资源IDs去标识一个资源，我们事实上是在使用一个指定资源的元组去标识一个资源，例如(bucket, object)或者(user, album, photo)。它会导致一些主要的麻烦：
 
- *  开发者必须去理解并且记住这些匿名元组
- *  传递元组获取通常比传递字符串更难
- *  中心化的基础设施，例如日志和访问权限控制系统，并不能理解指定的元组
- *  特定的元组限制了API设计的灵活性，例如提供可重用的API接口。
+*   开发者必须去理解并且记住这些匿名元组
+*   传递元组获取通常比传递字符串更难
+*   中心化的基础设施，例如日志和访问权限控制系统，并不能理解指定的元组
+*   特定的元组限制了API设计的灵活性，例如提供可重用的API接口。
 
 Q：为什么要把特殊字段命名为name而不是id？
 
