@@ -47,7 +47,7 @@ REST Google APIs的标准方法（也被称为REST方法）是`List`, `Get`, `Cr
 ### 例子
 以下部分介绍了一些关于如何将面向资源的API设计应用于大规模服务的现实世界示例。你可以在[Google API](https://github.com/googleapis/googleapis)仓库中找到更多示例。
 
-### Gmail API
+#### Gmail API
 Gmail API服务实现了Gmail API并暴露了大量的Gmail功能。 它有以下资源模型：
 
 *   API服务：`gmail.googleapis.com`
@@ -59,7 +59,7 @@ Gmail API服务实现了Gmail API并暴露了大量的Gmail功能。 它有以�
     *   表示用户个人资料的资源：`users/*/profile`。
     *   表示用户设置的资源：`users/*/settings`。
 
-### Cloud Pub/Sub API
+#### Cloud Pub/Sub API
 
 `pubsub.googleapis.com`服务实现了[Cloud Pub/Sub API](https://cloud.google.com/pubsub)，该API定义了以下资源模型：
 
