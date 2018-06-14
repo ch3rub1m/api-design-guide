@@ -199,7 +199,7 @@ message UpdateBookRequest {
 }
 ```
 
-### DELETE
+### Delete
 
 `Delete`方法携带一个资源名称及若干个参数，来立刻删除或在某个特定时间删除指定的资源。`Delete`方法应该返回`google.protobuf.Empty`。
 
