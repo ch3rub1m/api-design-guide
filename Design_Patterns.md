@@ -66,7 +66,7 @@ page token的内容应该是基于一个url安全的protocol buffer进行base64�
 某些时候，API需要让客户端对子集合进行`List/Search`操作。例如，图书馆（Library）API可能有一个书架（shelves）集合，每个书架里面有一个书本（books）集合，假如某个客户想要在所有的书架里面搜索一本书，在这种情形下，最推荐的做法是在子资源里面使用标准的`List`方法并为父级集合指定通配集合id`"-"`。对于这个API库的例子，我们可以使用以下的REST API请求：
 
 ```
-GET https://library.googleapis.com/v1/shelves/-/books/{id}
+GET https://library.googleapis.com/v1/shelves/-/books?filter=xxx
 ```
 
 提示：选择`"-"`替代`"*"`的原因是为了避免URL escaping。
