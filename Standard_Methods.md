@@ -27,8 +27,8 @@ Delete          | DELETE <resource URL>       | N/A               | google.proto
 
 批量获取（该方法可以携带多个资源ID并且返回对应的每一个对象）应该被实现为自定义方法`BatchGet`，而不是使用`List`。但是，如果你的`List`方法已经提供了类似的功能，那么你可能可以复用`List`来实现这个意图。如果你正在使用自定义方法`BatchGet`，它应该被映射到`HTTP GET`。
 
-适合的通用模式：[分页](https://cloud.google.com/apis/design/design_patterns#list_pagination)，[结果排序](https://cloud.google.com/apis/design/design_patterns#sorting_order)。
-适合的命名约定：[过滤字段](https://cloud.google.com/apis/design/naming_convention#list_filter_field)，[结果字段](https://cloud.google.com/apis/design/naming_convention#list_response)。
+适合的通用模式：[分页](./Design_Patterns.md#列表分页)，[结果排序](./Design_Patterns.md#排列顺序)。
+适合的命名约定：[过滤字段](./Naming_Conventions.md#列表过滤器字段)，[结果字段](./Naming_Conventions.md#列表响应)。
 
 HTTP映射：
 *   `List`方法必须使用HTTP`GET`动词
