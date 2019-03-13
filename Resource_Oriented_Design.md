@@ -69,7 +69,7 @@ Gmail API服务实现了Gmail API并暴露了大量的Gmail功能。 它有以�
 
 注意：Pub/Sub API的其他实现可能会选择不同的资源命名方案。
 
-Cloud Spanner API
+#### Cloud Spanner API
 
 spanner.googleapis.com服务实现了[Cloud Spanner API](https://cloud.google.com/spanner)，该API定义了以下资源模型：
 
