@@ -6,11 +6,11 @@
 
 Standard Method | HTTP Mapping                | HTTP Request Body | HTTP Response Body
 ----------------|-----------------------------|-------------------|------------------------
-List            | GET <collection URL>        | N/A               | Resource* list
-Get             | GET <resource URL>          | N/A               | Resource*
-Create          | POST <collection URL>       | Resource          | Resource*
-Update          | PUT or PATCH <resource URL> | Resource          | Resource*
-Delete          | DELETE <resource URL>       | N/A               | google.protobuf.Empty**
+List            | `GET <collection URL>`        | N/A               | Resource* list
+Get             | `GET <resource URL>`          | N/A               | Resource*
+Create          | `POST <collection URL>`       | Resource          | Resource*
+Update          | `PUT or PATCH <resource URL>` | Resource          | Resource*
+Delete          | `DELETE <resource URL>`       | N/A               | `google.protobuf.Empty`**
 
 *如果方法支持响应字段掩码——用于指定需要被返回的字段子集的话，那通过这些方法返回的资源中可能会包含局部数组。在某些场合，API平台天然支持所有方法的字段掩码。
 
