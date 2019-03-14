@@ -80,10 +80,10 @@ rpc BatchGetEvents(BatchGetEventsRequest) returns (BatchGetEventsResponse) {
 
 如下所示是一些常用且有用的自定义方法合集。API设计人员在引入他们自己的设计前应该优先考虑使用这些名称以促进跨API的一致性
 
-Method Name           | Custom verb | HTTP verb | Note
-----------------------|-------------|-----------|-----------------------------------------------
-Cancel                | :cancel     | POST      | 取消一个长时操作(构建、计算等等)
-BatchGet<plural noun> | :batchGet   | GET       | 批量获取多个资源。(在List的描述中获取更多细节)
-Move                  | :move       | POST      | 将一个资源从一个父级移动到另一个。
-Search                | :search     | GET       | 获取不符合列表语义的数据列表的替代方案。
-Undelete              | :undelete   | POST      | 还原一个先前删除的资源。推荐的保留时期为30天。
+Method Name            | Custom verb | HTTP verb | Note
+-----------------------|-------------|-----------|-----------------------------------------------
+Cancel                 | :cancel     | POST      | 取消一个长时操作(构建、计算等等)
+BatchGet\<plural noun> | :batchGet   | GET       | 批量获取多个资源。(在List的描述中获取更多细节)
+Move                   | :move       | POST      | 将一个资源从一个父级移动到另一个。
+Search                 | :search     | GET       | 获取不符合列表语义的数据列表的替代方案。
+Undelete               | :undelete   | POST      | 还原一个先前删除的资源。推荐的保留时期为30天。
